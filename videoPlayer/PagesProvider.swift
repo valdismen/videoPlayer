@@ -2,7 +2,6 @@
 //  PagesProvider.swift
 //  videoPlayer
 //
-//
 
 import UIKit
 

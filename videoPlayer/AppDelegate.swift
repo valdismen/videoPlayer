@@ -2,7 +2,6 @@
 //  AppDelegate.swift
 //  videoPlayer
 //
-//
 
 import UIKit
 

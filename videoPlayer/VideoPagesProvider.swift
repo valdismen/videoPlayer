@@ -2,7 +2,6 @@
 //  VideoPagesProvider.swift
 //  videoPlayer
 //
-//
 
 import Foundation
 
@@ -10,7 +9,7 @@ final class VideoPagesProvider: PagesProviderProtocol {
     
     private let dataUrl = "https://89.208.230.255/test/item"
     
-    let dataLoader: DataLoaderProtocol
+    private let dataLoader: DataLoaderProtocol
     
     init(dataLoader: DataLoaderProtocol) {
         self.dataLoader = dataLoader
@@ -33,11 +32,8 @@ final class VideoPagesProvider: PagesProviderProtocol {
             return
         }
         
-        print("Preview = \(preview)")
-        print("Videos = \(videos)")
-        
         completion(.success(videos.map({
-            VideoViewController(videoUrl: $0)
+            VideoPageModuleAssembly().make(videoUrl: $0, previewUrl: preview)
         })))
     }
     

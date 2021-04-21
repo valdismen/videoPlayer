@@ -2,7 +2,6 @@
 //  MainViewController.swift
 //  videoPlayer
 //
-//
 
 import UIKit
 

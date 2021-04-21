@@ -2,7 +2,6 @@
 //  MainModuleAssembly.swift
 //  videoPlayer
 //
-//
 
 import UIKit
 

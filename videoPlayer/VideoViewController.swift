@@ -2,19 +2,26 @@
 //  VideoViewController.swift
 //  videoPlayer
 //
-//
 
 import AVKit
 
 final class VideoViewController: UIViewController {
     private let infoLabel = UILabel()
+    private let previewView: ImageView = {
+        let view = ImageView()
+        view.contentMode = .scaleAspectFit
+        return view
+    }()
     
-    private let dataLoader = DataLoader()
+    private let dataLoader: DataLoaderProtocol
     private let videoUrl: String
+    
     private var savedVideoUrl: URL?
     
-    init(videoUrl: String) {
+    init(videoUrl: String, dataLoader: DataLoaderProtocol, previewProvider: ImageProviderProtocol?) {
         self.videoUrl = videoUrl
+        self.dataLoader = dataLoader
+        previewView.provider = previewProvider
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -25,19 +32,8 @@ final class VideoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
-        configureInfo()
-        
-        dataLoader.load(urlString: videoUrl) { [weak self] result in
-            guard let self = self else { return }
-            
-            switch result {
-            case .success(let data):
-                self.saveVideo(data: data)
-                self.showTip(with: "Нажмите, чтобы воспроизвести")
-            case .failure(let error):
-                self.showError(with: error.text)
-            }
-        }
+        configureView()
+        loadVideo()
         
         let tapRecogrizer = UITapGestureRecognizer(target: self, action: #selector(onTap))
         view.addGestureRecognizer(tapRecogrizer)
@@ -49,6 +45,21 @@ final class VideoViewController: UIViewController {
 
     @objc private func onTap() {
         playVideo()
+    }
+    
+    private func loadVideo() {
+        showLoading()
+        dataLoader.load(urlString: videoUrl) { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(let data):
+                self.saveVideo(data: data)
+                self.showTip(with: "Нажмите, чтобы воспроизвести")
+            case .failure(let error):
+                self.showError(with: error.text)
+            }
+        }
     }
     
     private func saveVideo(data: Data) {
@@ -70,14 +81,25 @@ final class VideoViewController: UIViewController {
         }
     }
     
-    private func configureInfo() {
-        infoLabel.translatesAutoresizingMaskIntoConstraints = false
+    private func configureView() {
+        [previewView, infoLabel].forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview($0)
+        }
+        
         infoLabel.textColor = .white
-        view.addSubview(infoLabel)
+        infoLabel.backgroundColor = .black
         
         NSLayoutConstraint.activate([
             infoLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             infoLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            previewView.topAnchor.constraint(equalTo: view.topAnchor),
+            previewView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            previewView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            previewView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
     }
     

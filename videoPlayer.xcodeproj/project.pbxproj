@@ -18,6 +18,9 @@
 		83DF6C782630B13200E9D3AA /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DF6C772630B13200E9D3AA /* DataLoader.swift */; };
 		83DF6C802630B8C500E9D3AA /* MainModuleAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DF6C7F2630B8C500E9D3AA /* MainModuleAssembly.swift */; };
 		83DF6C882630C53100E9D3AA /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DF6C872630C53100E9D3AA /* VideoViewController.swift */; };
+		83DF6C942630DA2F00E9D3AA /* VideoPageModuleAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DF6C932630DA2F00E9D3AA /* VideoPageModuleAssembly.swift */; };
+		83DF6C992630DB1900E9D3AA /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DF6C982630DB1900E9D3AA /* ImageView.swift */; };
+		83DF6C9E2630DB4400E9D3AA /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DF6C9D2630DB4400E9D3AA /* ImageProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +58,9 @@
 		83DF6C772630B13200E9D3AA /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
 		83DF6C7F2630B8C500E9D3AA /* MainModuleAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModuleAssembly.swift; sourceTree = "<group>"; };
 		83DF6C872630C53100E9D3AA /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		83DF6C932630DA2F00E9D3AA /* VideoPageModuleAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPageModuleAssembly.swift; sourceTree = "<group>"; };
+		83DF6C982630DB1900E9D3AA /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		83DF6C9D2630DB4400E9D3AA /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +111,7 @@
 		83DF6C0826307A1F00E9D3AA /* videoPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				83DF6C922630DA1700E9D3AA /* ImageView */,
 				83DF6C762630B12300E9D3AA /* DataLoader */,
 				83DF6C5F263093DB00E9D3AA /* VideoPageModule */,
 				83DF6C48263090C000E9D3AA /* Main */,
@@ -149,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				83DF6C872630C53100E9D3AA /* VideoViewController.swift */,
+				83DF6C932630DA2F00E9D3AA /* VideoPageModuleAssembly.swift */,
 			);
 			name = VideoPageModule;
 			sourceTree = "<group>";
@@ -159,6 +167,15 @@
 				83DF6C772630B13200E9D3AA /* DataLoader.swift */,
 			);
 			name = DataLoader;
+			sourceTree = "<group>";
+		};
+		83DF6C922630DA1700E9D3AA /* ImageView */ = {
+			isa = PBXGroup;
+			children = (
+				83DF6C982630DB1900E9D3AA /* ImageView.swift */,
+				83DF6C9D2630DB4400E9D3AA /* ImageProvider.swift */,
+			);
+			name = ImageView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,11 +307,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83DF6C9E2630DB4400E9D3AA /* ImageProvider.swift in Sources */,
 				83DF6C0E26307A1F00E9D3AA /* MainViewController.swift in Sources */,
 				83DF6C6A2630AB4C00E9D3AA /* PagesProvider.swift in Sources */,
+				83DF6C942630DA2F00E9D3AA /* VideoPageModuleAssembly.swift in Sources */,
 				83DF6C882630C53100E9D3AA /* VideoViewController.swift in Sources */,
 				83DF6C782630B13200E9D3AA /* DataLoader.swift in Sources */,
 				83DF6C722630B04600E9D3AA /* VideoPagesProvider.swift in Sources */,
+				83DF6C992630DB1900E9D3AA /* ImageView.swift in Sources */,
 				83DF6C0A26307A1F00E9D3AA /* AppDelegate.swift in Sources */,
 				83DF6C802630B8C500E9D3AA /* MainModuleAssembly.swift in Sources */,
 			);

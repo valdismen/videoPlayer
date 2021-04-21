@@ -2,7 +2,6 @@
 //  videoPlayerUITests.swift
 //  videoPlayerUITests
 //
-//
 
 import XCTest
 

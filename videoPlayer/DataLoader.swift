@@ -2,7 +2,6 @@
 //  DataLoader.swift
 //  videoPlayer
 //
-//
 
 import Foundation
 
